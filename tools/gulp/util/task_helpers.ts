@@ -2,7 +2,7 @@ import * as child_process from 'child_process';
 import * as fs from 'fs';
 import * as gulp from 'gulp';
 import * as path from 'path';
-import {buildConfig, sequenceTask} from 'material2-build-tools';
+import {buildConfig, sequenceTask} from 've-build-tools';
 
 /* Those imports lack typings. */
 const gulpClean = require('gulp-clean');
@@ -130,7 +130,7 @@ export function buildAppTask(appName: string) {
     .filter(taskName => gulp.hasTask(taskName));
 
   return sequenceTask(
-    'material:clean-build',
+    'viching-editor:clean-build',
     [...buildTasks]
   );
 }

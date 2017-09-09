@@ -1,9 +1,7 @@
-import {BuildPackage, buildConfig} from 'material2-build-tools';
+import {BuildPackage, buildConfig} from 've-build-tools';
 import {join} from 'path';
 
-export const cdkPackage = new BuildPackage('cdk');
-export const materialPackage = new BuildPackage('material', [cdkPackage]);
-export const examplesPackage = new BuildPackage('material-examples', [materialPackage, cdkPackage]);
+export const vePackage = new BuildPackage('viching-editor');
 
 // To avoid refactoring of the project the material package will map to the source path `lib/`.
-materialPackage.packageRoot = join(buildConfig.packagesDir, 'lib');
+vePackage.packageRoot = join(buildConfig.packagesDir, 'lib');

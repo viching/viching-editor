@@ -9,7 +9,7 @@ import {buildConfig} from './build-config';
 /** Directory where all bundles will be created in. */
 const bundlesDir = join(buildConfig.outputDir, 'bundles');
 
-/** Builds bundles for the primary entry-point w/ given entry file, e.g. @angular/cdk */
+/** Builds bundles for the primary entry-point w/ given entry file, e.g.*/
 export async function buildPrimaryEntryPointBundles(entryFile: string, packageName: string) {
   return createBundlesForEntryPoint({
     entryFile,
@@ -21,7 +21,7 @@ export async function buildPrimaryEntryPointBundles(entryFile: string, packageNa
   });
 }
 
-/** Builds bundles for a single secondary entry-point w/ given entry file, e.g. @angular/cdk/a11y */
+/** Builds bundles for a single secondary entry-point w/ given entry file, e.g.*/
 export async function buildSecondaryEntryPointBundles(entryFile: string, packageName: string,
                                                       entryPointName: string) {
   return createBundlesForEntryPoint({

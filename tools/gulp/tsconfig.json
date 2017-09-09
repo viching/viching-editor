@@ -2,7 +2,7 @@
   "compilerOptions": {
     "experimentalDecorators": true,
     "noUnusedParameters": true,
-    "lib": ["es2017", "dom"],
+    "lib": ["es2015", "dom", "es2016.array.include"],
     "module": "commonjs",
     "moduleResolution": "node",
     "outDir": "../../dist/tools/gulp",
@@ -15,7 +15,8 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "material2-build-tools": ["../package-tools/index"]
+      "ve-build-tools": ["../package-tools/index"],
+      "scss-bundle" : ["../../node_modules/scss-bundle/@types/index"]
     }
   },
   "files": [

@@ -1,19 +1,3 @@
-import {join} from 'path';
-import {getSubdirectoryNames} from './secondary-entry-points';
-import {buildConfig} from './build-config';
-
-/** Method that converts dash-case strings to a camel-based string. */
-const dashCaseToCamelCase = (str: string) => str.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
-
-/** List of potential secondary entry-points for the CDK package. */
-const cdkSecondaryEntryPoints = getSubdirectoryNames(join(buildConfig.packagesDir, 'cdk'));
-
-/** Object with all CDK entry points in the format of Rollup globals. */
-const rollupCdkEntryPoints = cdkSecondaryEntryPoints.reduce((globals: any, entryPoint: string) => {
-  globals[`@angular/cdk/${entryPoint}`] = `ng.cdk.${dashCaseToCamelCase(entryPoint)}`;
-  return globals;
-}, {});
-
 /** Map of globals that are used inside of the different packages. */
 export const rollupGlobals = {
   'tslib': 'tslib',
@@ -33,16 +17,11 @@ export const rollupGlobals = {
   '@angular/http/testing': 'ng.http.testing',
 
 
-  '@angular/material': 'ng.material',
-  '@angular/cdk': 'ng.cdk',
-
-  // Include secondary entry-points of the CDK package
-  ...rollupCdkEntryPoints,
+  '@angular/viching-editor': 'ng.viching-iditor',
 
   // Some packages are not really needed for the UMD bundles, but for the missingRollupGlobals rule.
   // TODO(devversion): remove by adding minimatch and better globbing to rules
-  '@angular/cdk/testing': 'ng.cdk.testing',
-  '@angular/material-examples': 'ng.materialExamples',
+  //'@angular/material-examples': 'ng.materialExamples',
 
   'rxjs/BehaviorSubject': 'Rx',
   'rxjs/Observable': 'Rx',
